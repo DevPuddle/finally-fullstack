@@ -5,6 +5,8 @@ const { urlencoded } = require('express')
 const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 
+const PORT = 9000
+
 let db,
     dbConnectionString = process.env.DB_STRING,
     dbName = 'sample_geospatial',
@@ -18,10 +20,14 @@ MongoClient.connect(dbConnectionString)
     })
 
 //setting middleware
-app.use('views engine', 'ejs')
+app.set('views engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use(cors())
 app.use(express.json())
+
+app.listen(process.env.PORT || PORT, () => {
+    console.log(`listening on port ${PORT}`)
+})
 
 

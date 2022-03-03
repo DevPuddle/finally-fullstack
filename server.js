@@ -26,6 +26,10 @@ app.use(express.urlencoded({extended: true}))
 app.use(cors())
 app.use(express.json())
 
+app.get('/', (request, response) => {
+    response.render('index.ejs')
+})
+
 app.listen(process.env.PORT || PORT, () => {
     console.log(`listening on port ${PORT}`)
 })

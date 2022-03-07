@@ -17,5 +17,5 @@ MongoClient.connect(dbConnectionString)
     })
 
 
-
+app.use('views engine', 'ejs')
 app.use(cors())

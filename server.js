@@ -16,6 +16,7 @@ MongoClient.connect(dbConnectionString)
         collection = db.collection('shipwrecks')
     })
 
-
+//setting middleware
 app.use('views engine', 'ejs')
+app.use(express.static('public'))
 app.use(cors())

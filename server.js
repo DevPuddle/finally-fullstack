@@ -26,8 +26,13 @@ app.use(express.urlencoded({extended: true}))
 app.use(cors())
 app.use(express.json())
 
-app.get('/', (request, response) => {
-    response.render('index.ejs')
+app.get('/', async (request, response) => {
+    try{
+        response.render('index.ejs')
+    }catch (error) {
+        response.status(500).send({message: error.message})
+    }
+    
 })
 
 app.listen(process.env.PORT || PORT, () => {

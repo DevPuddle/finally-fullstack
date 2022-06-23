@@ -21,6 +21,7 @@ MongoClient.connect(dbConnectionString)
 app.use('views engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
+
 
